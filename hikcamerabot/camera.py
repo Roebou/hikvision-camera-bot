@@ -24,6 +24,7 @@ class HikvisionCam:
         self.description = conf.description
         self._log.debug('Initializing %s', self.description)
         self._api = HikvisionAPI(conf=conf.api)
+        self.channel = conf.alert.video_gif.channel
 
         self._img = ImageProcessor()
         self.video_manager = VideoGifManager(conf)
@@ -51,7 +52,7 @@ class HikvisionCam:
         """Take and return full or resized snapshot from the camera."""
         self._log.debug('Taking snapshot from %s', self.description)
         try:
-            res = self._api.take_snapshot(stream=True)
+            res = self._api.take_snapshot(stream=True, channel=self.channel)
         except APIError:
             err_msg = f'Failed to take snapshot from {self.description}'
             self._log.error(err_msg)

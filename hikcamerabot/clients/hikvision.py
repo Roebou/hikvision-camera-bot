@@ -18,7 +18,8 @@ from hikcamerabot.exceptions import (APIError,
 
 
 class Endpoints(Enum):
-    PICTURE = 'ISAPI/Streaming/channels/102/picture?snapShotImageType=JPEG'
+    PICTURE_START = 'ISAPI/Streaming/channels/'
+    PICTURE_END = '/picture?snapShotImageType=JPEG'
     MOTION_DETECTION = 'ISAPI/System/Video/inputs/channels/1/motionDetection'
     LINE_CROSSING_DETECTION = 'ISAPI/Smart/LineDetection/1'
     INTRUSION_DETECTION = 'ISAPI/Smart/FieldDetection/1'
@@ -47,9 +48,9 @@ class HikvisionAPI:
         self._sess.auth = requests.auth.HTTPDigestAuth(conf.auth.user,
                                                        conf.auth.password)
 
-    def take_snapshot(self, stream=False):
+    def take_snapshot(self, stream=False, channel=0):
         """Take snapshot."""
-        return self._request(Endpoints.PICTURE.value, stream=stream)
+        return self._request(Endpoints.PICTURE_START.value + str(channel) + Endpoints.PICTURE_END.value, stream=stream)
 
     def get_alert_stream(self):
         """Get Alert Streams."""
