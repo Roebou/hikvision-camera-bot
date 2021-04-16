@@ -1,0 +1,105 @@
+{
+  "telegram": {
+    "token": "1219037466:AAE_xW7mO3QDzxEJVY35pyd6yPXQ5X6hyXo",
+    "allowed_user_ids": [438117602]
+  },
+  "watchdog": {
+    "enabled": false,
+    "directory": ""
+  },
+  "log_level": "DEBUG",
+  "camera_list": {
+    "cam_1": {
+      "description": "Roebou DVR Channel 101",
+      "api": {
+        "host": "http://roebouhome.ddns.net:8080",
+        "auth": {
+          "user": "admin",
+          "password": "Witklip89"
+        },
+        "stream_timeout": 300
+      },
+      "alert": {
+        "delay": 5,
+        "video_gif": {
+          "enabled": true,
+          "channel": 101,
+          "record_time": 15,
+          "tmp_storage": "/tmp",
+          "loglevel": "debug",
+          "rtsp_transport_type": "tcp"
+        },
+        "motion_detection": {
+          "enabled": false,
+          "fullpic": false
+        },
+        "line_crossing_detection": {
+          "enabled": false,
+          "fullpic": false
+        },
+        "intrusion_detection": {
+          "enabled": false,
+          "fullpic": false
+        }
+      },
+      "livestream": {
+        "youtube": {
+          "enabled": false,
+          "livestream_template": "tpl_kitchen",
+          "encoding_template": "x264.kitchen"
+        },
+        "icecast": {
+          "enabled": false,
+          "livestream_template": "tpl_kitchen",
+          "encoding_template": "vp9.kitchen"
+        }
+      }
+    },
+    "cam_2": {
+      "description": "Roebou DVR Channel 201",
+      "api": {
+        "host": "http://roebouhome.ddns.net:8080",
+        "auth": {
+          "user": "admin",
+          "password": "Witklip89"
+        },
+        "stream_timeout": 300
+      },
+      "alert": {
+        "delay": 5,
+        "video_gif": {
+          "enabled": true,
+          "channel": 201,
+          "record_time": 15,
+          "tmp_storage": "/tmp",
+          "loglevel": "debug",
+          "rtsp_transport_type": "tcp"
+        },
+        "motion_detection": {
+          "enabled": false,
+          "fullpic": false
+        },
+        "line_crossing_detection": {
+          "enabled": false,
+          "fullpic": false
+        },
+        "intrusion_detection": {
+          "enabled": false,
+          "fullpic": false
+        }
+      },
+      "livestream": {
+        "youtube": {
+          "enabled": false,
+          "livestream_template": "tpl_kitchen",
+          "encoding_template": "x264.kitchen"
+        },
+        "icecast": {
+          "enabled": false,
+          "livestream_template": "tpl_kitchen",
+          "encoding_template": "vp9.kitchen"
+        }
+      }
+    }
+  }
+}
