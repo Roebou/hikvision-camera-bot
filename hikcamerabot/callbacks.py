@@ -7,7 +7,7 @@ from telegram.ext import run_async
 
 from hikcamerabot.constants import Detections, Streams, Alarms, Events
 from hikcamerabot.decorators import authorization_check, camera_selection
-from hikcamerabot.utils import (build_commands_presentation, make_bold,
+from hikcamerabot.utils import (build_commands_presentation, build_commands_presentation_cam, make_bold,
                                 get_user_info)
 
 log = logging.getLogger(__name__)
@@ -247,7 +247,7 @@ def cmd_help(update, ctx, append=False, requested=True, cam_id=None):
             'Use /list command to list available cameras and commands\n'
             'Use /stop command to fully stop the bot')
     elif append:
-        presentation = build_commands_presentation(ctx.bot, cam_id)
+        presentation = build_commands_presentation_cam(ctx.bot, cam_id)
         update.message.reply_html(
             f'<b>Available commands</b>\n\n{presentation}\n\n/list cameras')
 

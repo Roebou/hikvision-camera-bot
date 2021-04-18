@@ -64,13 +64,26 @@ def print_access_error(update):
     update.message.reply_text('Not authorized')
 
 
+#def build_commands_presentation(bot, cam_id):
+#    groups = ["/cmds_" + cam_id]
+#    return '\n\n'.join(groups)
+
 def build_commands_presentation(bot, cam_id):
     groups = []
+
     for desc, cmds in bot.cam_registry.get_commands(cam_id).items():
         groups.append(
             '{0}\n{1}'.format(desc, '\n'.join(['/' + c for c in cmds])))
     return '\n\n'.join(groups)
 
+def build_commands_presentation_cam(bot, cam_id):
+
+    groups = []
+
+    for desc, cmds in bot.cam_registry.get_commands(cam_id).items():
+        groups.append(
+            '{0}\n{1}'.format(desc, '\n'.join(['/' + c for c in cmds])))
+    return '\n\n'.join(groups)
 
 def init_shared_manager(items):
     """Initialize and start shared manager."""
